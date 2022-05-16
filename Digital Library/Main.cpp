@@ -127,8 +127,62 @@ void Show_books(Book_Data* Books_info, long bsize)
 		cout << "\t" << Books_info[i].Rating << "\t" << Books_info[i].ID_of_book << "\t" << Books_info[i].Popularity << "\n";
 	}
 }
+//ÏÐÎÂÅÐÈÒÜ ÐÀÁÎÒÓ ÔÓÍÊÖÈÈ ÏÎÑËÅ ÂÂÅÄÅÍÈÅ ÏÎËÜÇÎÂÀÒÅËÅÉ Ñ + Ñ×ÅÒ×ÈÊÎÌ ÏÎÏÓËßÐÍÎÑÒÈ
+void Withdrawal_of_popular(Book_Data* Books_info, long bsize)
+{
+	char genre_for_popular[30];
+	int m;
+	bool popular_check = 1;
 
-void Show_only_popular(Book_Data* Books_int, long bsize)
+	cout << "\nIn what genre? - "; cin.ignore(); cin.getline(genre_for_popular, 30);
+
+	for (int i = 0; i < bsize; i++)
+	{
+		if (strcmp(genre_for_popular, Books_info[i].Genre) == 0)
+		{
+			m = i;
+			popular_check = 0;
+			break;
+		}
+	}
+
+	if (popular_check == 0)
+	{
+		for (int j = 0; j < bsize; j++)
+		{
+			if (m != j)
+			{
+				if (Books_info[m].Genre == Books_info[j].Genre)
+				{
+					if (Books_info[m].Popularity < Books_info[j].Popularity)
+					{
+						m = j;
+					}
+					else
+					{
+						continue;
+					}
+				}
+				else
+				{
+					continue;
+				}
+			}
+			else
+			{
+				continue;
+			}
+		}
+		cout << "\n" << Books_info[m].Edition << "\t" << Books_info[m].Name << "\t" << Books_info[m].Author << "\t" << Books_info[m].Genre << "\t" << Books_info[m].Price;
+		cout << "\t" << Books_info[m].Rating << "\t" << Books_info[m].ID_of_book << "\t" << Books_info[m].Popularity << "\n";
+	}
+	else
+	{
+		cout << "\nNo matches by genre!";
+	}
+}
+
+void Show_only_popular(Book_Data* Books_info, long bsize)
 {
 	int show_popular_choise;
 
@@ -136,7 +190,7 @@ void Show_only_popular(Book_Data* Books_int, long bsize)
 	
 	switch (show_popular_choise)
 	{
-	//Ââåñòè ïîñëå ïîäêëþ÷åíèÿ áàçû ÷èòàòåëåé!!!!!!!!!case 1: break;
+	case 1:Withdrawal_of_popular(Books_info, bsize);  break;
 	case 0: break;
 	default:cout << "Wrong choice!"; break;
 	}
@@ -272,7 +326,7 @@ void Book_menu(Book_Data*& Books_info, long& bsize, Reader_Data*& Reader_info, l
 
 	do
 	{
-		cout << "Enter choise\n#1 Show books\n#2 Book search\n#3 Sorting the list of books\n#4 Add book\n#5 Edit book\n#6 Delete book\n#7 Book Managenent\n#0 Back to main menu";
+		cout << "Enter choise\n#1 Show books\n#2 Book search\n#3 Sorting the list of books\n#4 Add book\n#5 Edit book\n#6 Delete book\n#7 Book Managenent\n#0 Back to main menu\n";
 		cin >> book_menu_choise;
 
 		switch (book_menu_choise)
