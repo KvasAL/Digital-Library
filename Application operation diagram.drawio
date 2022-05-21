@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2022-05-20T18:19:54.206Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" etag="BC9i3oOGTCyCxGdwzOF1" version="18.0.6" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-21T17:34:18.480Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" etag="ZSequJZx2ztqnJ8Snxpt" version="18.0.8" type="github">
   <diagram id="y9jcQ4mQ0gFcE9R2Qf6j" name="Page-1">
-    <mxGraphModel dx="2347" dy="1902" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2881" dy="2189" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="IGC7cP5TgzlPBevFt7c1-8" value="Основное меню" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;fontSize=20;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="240" y="40" width="260" height="234" as="geometry" />
+          <mxGeometry x="240" y="40" width="260" height="134" as="geometry" />
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-11" value=" #1 База книг" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;sketch=0;fontSize=17;fontFamily=Times New Roman;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-8" vertex="1">
           <mxGeometry y="26" width="260" height="34" as="geometry" />
@@ -13,14 +13,8 @@
         <mxCell id="IGC7cP5TgzlPBevFt7c1-12" value=" #2 База читателей" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;sketch=0;fontSize=17;fontFamily=Times New Roman;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-8" vertex="1">
           <mxGeometry y="60" width="260" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-19" value=" #3 Импорт общей&#xa;базы    " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;sketch=0;fontSize=17;fontFamily=Times New Roman;fillColor=default;strokeColor=default;" parent="IGC7cP5TgzlPBevFt7c1-8" vertex="1">
-          <mxGeometry y="94" width="260" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-20" value=" #4 Экспорт общей&#xa;базы" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;sketch=0;fontSize=17;fontFamily=Times New Roman;shadow=0;gradientDirection=east;strokeWidth=1;fillColor=default;gradientColor=none;strokeColor=default;" parent="IGC7cP5TgzlPBevFt7c1-8" vertex="1">
-          <mxGeometry y="144" width="260" height="50" as="geometry" />
-        </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-21" value=" #0 Выход" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;sketch=0;fontSize=17;fontFamily=Times New Roman;strokeWidth=1;shadow=0;glass=0;fillColor=#76608a;gradientDirection=east;strokeColor=#432D57;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-8" vertex="1">
-          <mxGeometry y="194" width="260" height="40" as="geometry" />
+          <mxGeometry y="94" width="260" height="40" as="geometry" />
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-24" value="База Книг" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;strokeColor=default;strokeWidth=1;fillColor=default;gradientColor=none;gradientDirection=east;" parent="1" vertex="1">
           <mxGeometry x="-170" y="40" width="250" height="296" as="geometry" />
@@ -43,7 +37,7 @@
         <mxCell id="IGC7cP5TgzlPBevFt7c1-35" value="#6 Удаление книги" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;labelPosition=center;verticalLabelPosition=middle;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-24" vertex="1">
           <mxGeometry y="206" width="250" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-36" value="#7 Менеджмент книг" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;labelPosition=center;verticalLabelPosition=middle;" parent="IGC7cP5TgzlPBevFt7c1-24" vertex="1">
+        <mxCell id="IGC7cP5TgzlPBevFt7c1-36" value="#7 Менеджмент книг" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;labelPosition=center;verticalLabelPosition=middle;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-24" vertex="1">
           <mxGeometry y="236" width="250" height="30" as="geometry" />
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-37" value="#0 Назад в &quot;Основное меню&quot;" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;labelPosition=center;verticalLabelPosition=middle;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-24" vertex="1">
@@ -109,16 +103,16 @@
         <mxCell id="IGC7cP5TgzlPBevFt7c1-75" value="Менеджмент книг" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;strokeColor=#B20000;strokeWidth=1;fillColor=#e51400;gradientDirection=east;fontColor=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="-220" y="500" width="210" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-76" value="#1 Вывод списка выданных &#xa;книг" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;" parent="IGC7cP5TgzlPBevFt7c1-75" vertex="1">
+        <mxCell id="IGC7cP5TgzlPBevFt7c1-76" value="#1 Вывод списка выданных &#xa;книг" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-75" vertex="1">
           <mxGeometry y="26" width="210" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-79" value="#2 Выдать книгу" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;" parent="IGC7cP5TgzlPBevFt7c1-75" vertex="1">
+        <mxCell id="IGC7cP5TgzlPBevFt7c1-79" value="#2 Выдать книгу" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-75" vertex="1">
           <mxGeometry y="80" width="210" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-80" value="#3 Вернуть книгу" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;" parent="IGC7cP5TgzlPBevFt7c1-75" vertex="1">
+        <mxCell id="IGC7cP5TgzlPBevFt7c1-80" value="#3 Вернуть книгу" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-75" vertex="1">
           <mxGeometry y="110" width="210" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-81" value="#0 Назад в &quot;База Книг&quot;" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;" parent="IGC7cP5TgzlPBevFt7c1-75" vertex="1">
+        <mxCell id="IGC7cP5TgzlPBevFt7c1-81" value="#0 Назад в &quot;База Книг&quot;" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-75" vertex="1">
           <mxGeometry y="140" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-85" value="" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Times New Roman;fontSize=17;" parent="1" source="IGC7cP5TgzlPBevFt7c1-83" target="IGC7cP5TgzlPBevFt7c1-84" edge="1">
@@ -149,7 +143,7 @@
           <mxGeometry x="275" y="-220" width="305" height="30" as="geometry" />
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-94" value="Структура &quot;Книги&quot; стостоит из таких данных" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#d5e8d4;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;strokeColor=#82b366;strokeWidth=1;swimlaneFillColor=default;gradientColor=#97d077;" parent="1" vertex="1">
-          <mxGeometry x="-410" y="-290" width="450" height="286" as="geometry" />
+          <mxGeometry x="-410" y="-320" width="450" height="312" as="geometry" />
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-95" value="- Дата издания" style="text;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;gradientColor=#97d077;" parent="IGC7cP5TgzlPBevFt7c1-94" vertex="1">
           <mxGeometry y="26" width="450" height="26" as="geometry" />
@@ -180,6 +174,9 @@
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-105" value="- Сколько раз её взяли = популярность" style="text;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;gradientColor=#97d077;" parent="IGC7cP5TgzlPBevFt7c1-94" vertex="1">
           <mxGeometry y="260" width="450" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="A93S3qLj2dooBYVlnmr1-1" value="- ID пользователя который взял книгу" style="text;strokeColor=#B20000;fillColor=#e51400;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" vertex="1" parent="IGC7cP5TgzlPBevFt7c1-94">
+          <mxGeometry y="286" width="450" height="26" as="geometry" />
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-106" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;fontFamily=Times New Roman;fontSize=17;" parent="1" source="IGC7cP5TgzlPBevFt7c1-36" target="IGC7cP5TgzlPBevFt7c1-75" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -239,7 +236,7 @@
         <mxCell id="IGC7cP5TgzlPBevFt7c1-118" value="#4 Добавление читателя" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-112" vertex="1">
           <mxGeometry y="128" width="250" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-119" value="#5 Редактирование информации&#xa;по читателю" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;" parent="IGC7cP5TgzlPBevFt7c1-112" vertex="1">
+        <mxCell id="IGC7cP5TgzlPBevFt7c1-119" value="#5 Редактирование информации&#xa;по читателю" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-112" vertex="1">
           <mxGeometry y="162" width="250" height="48" as="geometry" />
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-120" value="#6 Удаление читателя" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-112" vertex="1">
@@ -329,16 +326,16 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-149" value="Редактирование информации по читателю" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;strokeColor=#6c8ebf;strokeWidth=1;fillColor=#dae8fc;gradientColor=#7ea6e0;gradientDirection=east;" parent="1" vertex="1">
+        <mxCell id="IGC7cP5TgzlPBevFt7c1-149" value="Редактирование информации по читателю" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;strokeColor=#432D57;strokeWidth=1;fillColor=#76608a;gradientDirection=east;fontColor=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="1025" y="600" width="400" height="128" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-150" value="#1 Редактировать всю информацию" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;" parent="IGC7cP5TgzlPBevFt7c1-149" vertex="1">
+        <mxCell id="IGC7cP5TgzlPBevFt7c1-150" value="#1 Редактировать всю информацию" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-149" vertex="1">
           <mxGeometry y="26" width="400" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-154" value="#2 Выбрать информацию для редактирования" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;" parent="IGC7cP5TgzlPBevFt7c1-149" vertex="1">
+        <mxCell id="IGC7cP5TgzlPBevFt7c1-154" value="#2 Выбрать информацию для редактирования" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-149" vertex="1">
           <mxGeometry y="60" width="400" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-155" value="#0 Назад в &quot;База читателей&quot;" style="text;strokeColor=default;fillColor=default;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;" parent="IGC7cP5TgzlPBevFt7c1-149" vertex="1">
+        <mxCell id="IGC7cP5TgzlPBevFt7c1-155" value="#0 Назад в &quot;База читателей&quot;" style="text;strokeColor=#432D57;fillColor=#76608a;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;fontColor=#ffffff;" parent="IGC7cP5TgzlPBevFt7c1-149" vertex="1">
           <mxGeometry y="94" width="400" height="34" as="geometry" />
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-156" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;fontFamily=Times New Roman;fontSize=17;" parent="1" source="IGC7cP5TgzlPBevFt7c1-119" target="IGC7cP5TgzlPBevFt7c1-149" edge="1">
@@ -350,7 +347,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-157" value="Структура &quot;Читатель&quot; стостоит из таких данных" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#dae8fc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;strokeColor=#6c8ebf;strokeWidth=1;swimlaneFillColor=default;gradientColor=#7ea6e0;" parent="1" vertex="1">
-          <mxGeometry x="735" y="-290" width="465" height="196" as="geometry" />
+          <mxGeometry x="730" y="-262" width="465" height="196" as="geometry" />
         </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-159" value="- ФИО" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;labelBorderColor=none;gradientColor=#7ea6e0;" parent="IGC7cP5TgzlPBevFt7c1-157" vertex="1">
           <mxGeometry y="26" width="465" height="34" as="geometry" />
@@ -367,9 +364,6 @@
         <mxCell id="IGC7cP5TgzlPBevFt7c1-164" value="- Количество прочитанных книг" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;labelBorderColor=none;gradientColor=#7ea6e0;" parent="IGC7cP5TgzlPBevFt7c1-157" vertex="1">
           <mxGeometry y="162" width="465" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-165" value="- Список книг на руках у читателя" style="text;strokeColor=#B20000;fillColor=#e51400;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;glass=0;sketch=0;fontFamily=Times New Roman;fontSize=17;labelBorderColor=none;fontColor=#ffffff;" parent="1" vertex="1">
-          <mxGeometry x="735" y="-94" width="465" height="34" as="geometry" />
-        </mxCell>
         <mxCell id="IGC7cP5TgzlPBevFt7c1-167" value="" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;rounded=1;sketch=0;fontFamily=Times New Roman;fontSize=17;curved=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="IGC7cP5TgzlPBevFt7c1-105" target="IGC7cP5TgzlPBevFt7c1-164" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="140" y="-10" as="sourcePoint" />
@@ -379,27 +373,6 @@
               <mxPoint x="390" />
               <mxPoint x="640" />
             </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-169" value="" style="html=1;verticalAlign=bottom;endArrow=block;rounded=1;sketch=0;fontFamily=Times New Roman;fontSize=17;curved=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="IGC7cP5TgzlPBevFt7c1-165" edge="1">
-          <mxGeometry width="80" relative="1" as="geometry">
-            <mxPoint x="40" y="-100" as="sourcePoint" />
-            <mxPoint x="190" y="-300" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="160" y="-280" />
-              <mxPoint x="400" y="-280" />
-              <mxPoint x="570" y="-280" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-170" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Times New Roman;fontSize=17;" parent="1" source="IGC7cP5TgzlPBevFt7c1-103" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="160" y="-280" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="IGC7cP5TgzlPBevFt7c1-171" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Times New Roman;fontSize=17;" parent="1" source="IGC7cP5TgzlPBevFt7c1-102" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="120" y="-220" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
