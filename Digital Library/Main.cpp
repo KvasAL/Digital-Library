@@ -1293,13 +1293,94 @@ void Reader_menu(Reader_Data*& Readers_info, long& rsize, Book_Data*& Books_info
 	} while (reader_menu_exit);
 }
 
-void Import_book_base(Book_Data*& Books_info, long bsize)
+void Import_readers_base(Reader_Data*& Readers_info, long& rsize)
 {
+	char buff[300];
+	char* temp;
 
+	ifstream impreader("C:/CPP/Digital Library/Base/Reader_list.txt");
+	if (!impreader)
+	{
+		cout << "\nSaved database not found. Loading a clean library...";
+	}
+	else
+	{
+		while (impreader)
+		{
+			impreader.getline(buff, 300);
+			rsize++;
+		}
+		rsize--;
+
+		impreader.close();
+		Readers_info = new Reader_Data[rsize];
+		impreader.open("C:/CPP/Digital Library/Base/Reader_list.txt");
+
+		for (int i = 0; i < rsize; i++)
+		{
+			impreader.getline(buff, 300);
+			temp = strtok(buff, "#");
+			Readers_info[i].Full_name = new char(strlen(temp) + 1);
+			strcpy(Readers_info[i].Full_name, temp);
+			temp = strtok(NULL, "#");
+			Readers_info[i].Date_of_birth = new char(strlen(temp) + 1);
+			strcpy(Readers_info[i].Date_of_birth, temp);
+			Readers_info[i].Passport_ID = atoi(strtok(NULL, "#"));
+			Readers_info[i].ID_of_user = atoi(strtok(NULL, "#"));
+			Readers_info[i].Books_read = atoi(strtok(NULL, "\n"));
+		}
+		impreader.close();
+	}
 }
 
-void Import_readers_base(Reader_Data*& Readers_info, long rsize)
+
+void Import_book_base(Book_Data*& Books_info, long& bsize)
 {
+	char buff[300];
+	char* temp;
+
+	ifstream impbook("C:/CPP/Digital Library/Base/Book_list.txt");
+	if (!impbook)
+	{
+		cout << "\nSaved database not found. Loading a clean library...";
+	}
+	else
+	{
+		while (impbook)
+		{
+			impbook.getline(buff, 300);
+			bsize++;
+		}
+		bsize--;
+
+		impbook.close();
+		Books_info = new Book_Data[bsize];
+		impbook.open("C:/CPP/Digital Library/Base/Book_list.txt");
+
+		for (int i = 0; i < bsize; i++)
+		{
+			impbook.getline(buff, 300);
+			Books_info[i].Edition = atoi(strtok(buff, "#"));
+			temp = strtok(NULL, "#");
+			Books_info[i].Name = new char(strlen(temp) + 1);
+			strcpy(Books_info[i].Name, temp);
+			temp = strtok(NULL, "#");
+			Books_info[i].Author = new char(strlen(temp) + 1);
+			strcpy(Books_info[i].Author, temp);
+			temp = strtok(NULL, "#");
+			Books_info[i].Genre = new char(strlen(temp) + 1);
+			strcpy(Books_info[i].Genre, temp);
+			Books_info[i].Price = atoi(strtok(NULL, "#"));
+			Books_info[i].Rating = atoi(strtok(NULL, "#"));
+			Books_info[i].ID_of_book = atoi(strtok(NULL, "#"));
+			Books_info[i].Popularity = atoi(strtok(NULL, "#"));
+			Books_info[i].ID_reader_who_took_the_book = atoi(strtok(NULL, "#"));
+			temp = strtok(NULL, "\n");
+			Books_info[i].Issuing_time = new char[strlen(temp)+1];
+			strcpy(Books_info[i].Issuing_time, temp);
+		}
+		impbook.close();
+	}
 
 }
 
@@ -1309,7 +1390,7 @@ void Export_book_base(Book_Data* Books_info, long bsize)
 
 	for (int i = 0; i < bsize; i++)
 	{
-		exbook << Books_info[i].Name << "#" << Books_info[i].Author << "#" << Books_info[i].Genre << "#" << Books_info[i].Price << "#" << Books_info[i].Rating << "#";
+		exbook <<Books_info[i].Edition<<"#"<< Books_info[i].Name << "#" << Books_info[i].Author << "#" << Books_info[i].Genre << "#" << Books_info[i].Price << "#" << Books_info[i].Rating << "#";
 		exbook << Books_info[i].ID_of_book << "#" << Books_info[i].Popularity << "#"<< Books_info[i].ID_reader_who_took_the_book<<"#"<< Books_info[i].Issuing_time;
 	}
 
@@ -1322,8 +1403,8 @@ void Export_readers_base(Reader_Data* Readers_info, long rsize)
 
 	for (int i = 0; i < rsize; i++)
 	{
-		exreader << Readers_info[i].Full_name << "#" << Readers_info[i].Date_of_birth << "#" << Readers_info[i].Passport_ID << "\t"; 
-		exreader << Readers_info[i].ID_of_user << "\t" << Readers_info[i].Books_read<<"\n";
+		exreader << Readers_info[i].Full_name << "#" << Readers_info[i].Date_of_birth << "#" << Readers_info[i].Passport_ID << "#"; 
+		exreader << Readers_info[i].ID_of_user << "#" << Readers_info[i].Books_read<<"\n";
 	}
 
 	exreader.close();
@@ -1336,11 +1417,14 @@ int main()
 	bool check = 1;
 	Book_Data* Books_info = nullptr;
 	Reader_Data* Readers_info = nullptr;
+	
+	Import_readers_base(Readers_info, rsize);
+	Import_book_base(Books_info, bsize);
 
 	do
 	{
 		cout << "\t\t\t\t@Made by Kvas\n\n\n\n\n\n\n\n\n\n";
-		cout << "Enter choice\n1# Working with books\n#2 Working with readers\n#0 Exit\n"; cin >> choise;
+		cout << "Enter choice\n1# Working with books\n2# Working with readers\n0# Exit\n"; cin >> choise;
 		switch (choise)
 		{
 		case 1: Book_menu(Books_info, bsize, Readers_info, rsize); break;
