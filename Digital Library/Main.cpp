@@ -37,13 +37,11 @@ int Choice_checker()
 	char input[5];
 	int choice;
 
-	while (!(cin >> choice) || (cin.peek() != '\n'))
-	{
+	while (!(cin >> choice) || (cin.peek() != '\n')) {
 		cin.clear();
 		while (cin.get() != '\n');
 		cout << "Only numbers!!\a" << endl;
 	}
-
 	return choice;
 }
 
@@ -70,20 +68,18 @@ void Show_books(Book_Data* Books_info, long bsize)
 {
 	cout << "\nEdition\t\tName\t\tAuthor\t\tGenre\t\tPrice\t\tRating\t\tID\t\tPopularity" << "\n";
 
-	for (int i = 0; i < bsize; i++)
-	{
-		cout << "\n"<< Books_info[i].Edition << "\t   " << Books_info[i].Name << "\t";
-		cout << Books_info[i].Author << "\t\t"<< Books_info[i].Genre << "\t\t"<< Books_info[i].Price;
-		cout << "\t\t" << Books_info[i].Rating << "\t\t" << Books_info[i].ID_of_book << "\t\t" << Books_info[i].Popularity <<"\n";
+	for (int i = 0; i < bsize; i++) {
+		cout << "\n" << Books_info[i].Edition << "\t   " << Books_info[i].Name << "\t";
+		cout << Books_info[i].Author << "\t\t" << Books_info[i].Genre << "\t\t" << Books_info[i].Price;
+		cout << "\t\t" << Books_info[i].Rating << "\t\t" << Books_info[i].ID_of_book << "\t\t" << Books_info[i].Popularity << "\n";
 	}
 }
 
 void Show_readers(Reader_Data* Readers_info, long rsize)
 {
 	cout << "\nName\t\tDate of birth\t\tPassport ID\t\tID\t\tActivity" << "\n";
-	
-	for (int i = 0; i < rsize; i++)
-	{
+
+	for (int i = 0; i < rsize; i++) {
 		cout << "\n" << Readers_info[i].Full_name << "\t" << Readers_info[i].Date_of_birth << "\t\t" << Readers_info[i].Passport_ID;
 		cout << "\t\t\t" << Readers_info[i].ID_of_user << "\t\t" << Readers_info[i].Books_read << "\n";
 	}
@@ -97,57 +93,55 @@ void Add_book(Book_Data*& Books_info, long& bsize)
 	bool ID_check = 1;
 	int id;
 
-	Book_Data* temp = new Book_Data[bsize+1];
+	Book_Data* temp = new Book_Data[bsize + 1];
 
-	for (int i = 0; i < bsize; i++)
-	{
+	for (int i = 0; i < bsize; i++) {
 		temp[i] = Books_info[i];
 	}
-
 	delete[] Books_info;
 	Books_info = temp;
 
 	char buff[100];
 
 	cout << "\nEnter Name of book - "; 	cin.ignore(); cin.get(buff, 100);
-	Books_info[bsize].Name = new char[strlen(buff)+1];
+	Books_info[bsize].Name = new char[strlen(buff) + 1];
 	strcpy(Books_info[bsize].Name, buff);
+
 	cout << "\nEnter Edition of book(20**) - "; cin >> Books_info[bsize].Edition;
+
 	cout << "\nEnter Author of book - "; cin.ignore(); cin.get(buff, 100);
-	Books_info[bsize].Author = new char[strlen(buff)+1];
+	Books_info[bsize].Author = new char[strlen(buff) + 1];
 	strcpy(Books_info[bsize].Author, buff);
+
 	cout << "\nEnter Genre of book - "; cin.ignore(); cin.get(buff, 100);
-	Books_info[bsize].Genre = new char[strlen(buff)+1];
+	Books_info[bsize].Genre = new char[strlen(buff) + 1];
 	strcpy(Books_info[bsize].Genre, buff);
 
 	cout << "\nEnter Price of book($) - "; Books_info[bsize].Price = Choice_checker();
 	cout << "\nEnter Rating of the book(0-100) - "; Books_info[bsize].Rating = Choice_checker();
-	
+
 	do
 	{
 		cout << "\nEnter ID of book(177524) - "; id = Choice_checker();
 
-		for (int i = 0; i <= bsize; i++)
-		{
-			if (Books_info[i].ID_of_book == id)
-			{
+		for (int i = 0; i <= bsize; i++) {
+			if (Books_info[i].ID_of_book == id) {
 				cout << "This ID already exists!";
 				ID_check = 1;
 				break;
 			}
-			else
-			{
+			else {
 				ID_check = 0;
 			}
 		}
-		if (ID_check == 0)
-		{
+		if (ID_check == 0) {
 			Books_info[bsize].ID_of_book = id;
 		}
 	} while (ID_check);
 
 	Books_info[bsize].Popularity = 0;
 	Books_info[bsize].ID_reader_who_took_the_book = 0;
+
 	time_t now = time(0);
 	Books_info[bsize].Issuing_time = ctime(&now);
 
@@ -158,13 +152,12 @@ void Delete_book(Book_Data*& Books_info, long& bsize)
 {
 	int delet_identifier;
 	int position = 0;
+
 	Show_books(Books_info, bsize);
 	cout << "\nEnter ID of book - "; cin >> delet_identifier;
 
-	for(int i = 0; i < bsize; i++)
-	{
-		if (delet_identifier == Books_info[i].ID_of_book)
-		{
+	for (int i = 0; i < bsize; i++) {
+		if (delet_identifier == Books_info[i].ID_of_book) {
 			position = i;
 			break;
 		}
@@ -172,18 +165,14 @@ void Delete_book(Book_Data*& Books_info, long& bsize)
 
 	Book_Data* temp = new Book_Data[bsize - 1];
 
-	for (int i = 0; i < bsize; i++)
-	{
-		if (i < position)
-		{
+	for (int i = 0; i < bsize; i++) {
+		if (i < position) {
 			temp[i] = Books_info[i];
 		}
-		else if (i == position)
-		{
+		else if (i == position) {
 			continue;
 		}
-		else
-		{
+		else {
 			temp[i - 1] = Books_info[i];
 		}
 	}
@@ -200,10 +189,8 @@ void Withdrawal_of_popular(Book_Data* Books_info, long bsize)
 
 	cout << "\nIn what genre? - "; cin.ignore(); cin.getline(genre_for_popular, 30);
 
-	for (int i = 0; i < bsize; i++)
-	{
-		if (strcmp(genre_for_popular, Books_info[i].Genre) == 0)
-		{
+	for (int i = 0; i < bsize; i++) {
+		if (strcmp(genre_for_popular, Books_info[i].Genre) == 0) {
 			m = i;
 			popular_check = 0;
 			break;
@@ -212,36 +199,19 @@ void Withdrawal_of_popular(Book_Data* Books_info, long bsize)
 
 	if (popular_check == 0)
 	{
-		for (int j = 0; j < bsize; j++)
-		{
-			if (m != j)
-			{
-				if (Books_info[m].Genre == Books_info[j].Genre)
-				{
-					if (Books_info[m].Popularity < Books_info[j].Popularity)
-					{
+		for (int j = 0; j < bsize; j++) {
+			if (m != j) {
+				if (Books_info[m].Genre == Books_info[j].Genre) {
+					if (Books_info[m].Popularity < Books_info[j].Popularity) {
 						m = j;
 					}
-					else
-					{
-						continue;
-					}
 				}
-				else
-				{
-					continue;
-				}
-			}
-			else
-			{
-				continue;
 			}
 		}
 		cout << "\n" << Books_info[m].Edition << "\t" << Books_info[m].Name << "\t" << Books_info[m].Author << "\t" << Books_info[m].Genre << "\t" << Books_info[m].Price;
 		cout << "\t" << Books_info[m].Rating << "\t" << Books_info[m].ID_of_book << "\t" << Books_info[m].Popularity << "\n";
 	}
-	else
-	{
+	else {
 		cout << "\nNo matches by genre!";
 	}
 
@@ -251,7 +221,7 @@ void Withdrawal_of_popular(Book_Data* Books_info, long bsize)
 void Show_only_popular(Book_Data* Books_info, long bsize)
 {
 	cout << "\nShow only popular books?\n#1 Yes\n#0 Back to book menu\n";
-	
+
 	switch (Choice_checker())
 	{
 	case 1:Withdrawal_of_popular(Books_info, bsize);  break;
@@ -260,104 +230,72 @@ void Show_only_popular(Book_Data* Books_info, long bsize)
 	}
 }
 
-void Search_book(Book_Data* Books_info, long bsize,int search_book_choise)
+void Search_book(Book_Data* Books_info, long bsize, int search_book_choise)
 {
 	int concidence = 0;
 	char* search_data;
 	char buff[100];
-	
-	if (search_book_choise == 1)
-	{
+
+	if (search_book_choise == 1) {
 		cout << "\nEnter name of Author - "; cin.ignore(); cin.getline(buff, 100);
 		search_data = new char[strlen(buff) + 1];
 		strcpy(search_data, buff);
 
-		for (int i = 0; i < bsize; i++)
-		{
-			if (strcmp(search_data, Books_info[i].Author) == 0)
-			{
+		for (int i = 0; i < bsize; i++) {
+			if (strcmp(search_data, Books_info[i].Author) == 0) {
 				cout << "\n" << Books_info[i].Edition << "\t" << Books_info[i].Name << "\t" << Books_info[i].Author << "\t" << Books_info[i].Genre << "\t" << Books_info[i].Price;
 				cout << "\t" << Books_info[i].Rating << "\t" << Books_info[i].ID_of_book << "\t" << Books_info[i].Popularity << "\n";
 				concidence++;
 			}
-			else
-			{
-				continue;
-			}
 		}
-		if (concidence == 0)
-		{
+		if (concidence == 0) {
 			cout << "\n No matches";
 		}
 	}
-	else if (search_book_choise == 2)
-	{
+	else if (search_book_choise == 2) {
 		cout << "\nEnter name of book - "; cin.ignore(); cin.getline(buff, 100);
 		search_data = new char[strlen(buff) + 1];
 		strcpy(search_data, buff);
 
-		for (int i = 0; i < bsize; i++)
-		{
-			if (strcmp(search_data, Books_info[i].Name) == 0)
-			{
+		for (int i = 0; i < bsize; i++) {
+			if (strcmp(search_data, Books_info[i].Name) == 0) {
 				cout << "\n" << Books_info[i].Edition << "\t" << Books_info[i].Name << "\t" << Books_info[i].Author << "\t" << Books_info[i].Genre << "\t" << Books_info[i].Price;
 				cout << "\t" << Books_info[i].Rating << "\t" << Books_info[i].ID_of_book << "\t" << Books_info[i].Popularity << "\n";
 				concidence++;
 			}
-			else
-			{
-				continue;
-			}
 		}
-		if (concidence == 0)
-		{
+		if (concidence == 0) {
 			cout << "\n No matches";
 		}
 	}
-	else if (search_book_choise == 3)
-	{
+	else if (search_book_choise == 3) {
 		cout << "\nEnter genre of book - "; cin.ignore(); cin.getline(buff, 100);
 		search_data = new char[strlen(buff) + 1];
 		strcpy(search_data, buff);
 
-		for (int i = 0; i < bsize; i++)
-		{
-			if (strcmp(search_data, Books_info[i].Genre) == 0)
-			{
+		for (int i = 0; i < bsize; i++) {
+			if (strcmp(search_data, Books_info[i].Genre) == 0) {
 				cout << "\n" << Books_info[i].Edition << "\t" << Books_info[i].Name << "\t" << Books_info[i].Author << "\t" << Books_info[i].Genre << "\t" << Books_info[i].Price;
 				cout << "\t" << Books_info[i].Rating << "\t" << Books_info[i].ID_of_book << "\t" << Books_info[i].Popularity << "\n";
 				concidence++;
 			}
-			else
-			{
-				continue;
-			}
 		}
-		if (concidence == 0)
-		{
+		if (concidence == 0) {
 			cout << "\n No matches";
 		}
 	}
-	else if (search_book_choise == 4)
-	{
+	else if (search_book_choise == 4) {
 		cout << "\nEnter popularity of book - "; cin.ignore(); cin.getline(buff, 100);
 		int popularity = atoi(buff);
 
-		for (int i = 0; i < bsize; i++)
-		{
-			if (popularity == Books_info[i].Popularity)
-			{
+		for (int i = 0; i < bsize; i++) {
+			if (popularity == Books_info[i].Popularity) {
 				cout << "\n" << Books_info[i].Edition << "\t" << Books_info[i].Name << "\t" << Books_info[i].Author << "\t" << Books_info[i].Genre << "\t" << Books_info[i].Price;
 				cout << "\t" << Books_info[i].Rating << "\t" << Books_info[i].ID_of_book << "\t" << Books_info[i].Popularity << "\n";
 				concidence++;
 			}
-			else
-			{
-				continue;
-			}
 		}
-		if (concidence == 0)
-		{
+		if (concidence == 0) {
 			cout << "\n No matches";
 		}
 	}
@@ -387,108 +325,92 @@ void Search_book_menu(Book_Data* Books_info, long bsize)
 	} while (search_book_exit);
 }
 
-void Edit_book(Book_Data*& Books_info, long bsize,int m,int editor_choise)
+void Edit_book(Book_Data*& Books_info, long bsize, int m, int editor_choise)
 {
 	char buff[100];
 	bool ID_check = 1;
 	int id;
 
-	if (editor_choise == 1)
-	{
+	if (editor_choise == 1) {
 		cout << "\n Enter Edition of book(19**,20**) - "; cin >> Books_info[m].Edition;
 
 		cout << "\nEnter Name of book - "; 	cin.ignore(); cin.get(buff, 100);
 		Books_info[m].Name = new char[strlen(buff) + 1];
 		strcpy(Books_info[m].Name, buff);
+
 		cout << "\nEnter Author of book - "; cin.ignore(); cin.get(buff, 100);
 		Books_info[m].Author = new char[strlen(buff) + 1];
 		strcpy(Books_info[m].Author, buff);
+
 		cout << "\nEnter Genre of book - "; cin.ignore(); cin.get(buff, 100);
 		Books_info[m].Genre = new char[strlen(buff) + 1];
 		strcpy(Books_info[m].Genre, buff);
 
 		cout << "\nEnter Price of book - "; cin >> Books_info[m].Price;
 		cout << "\nEnter Rating of the book - "; cin >> Books_info[m].Rating;
-		
 		do
 		{
 			cout << "\nEnter ID of book(177524) - "; id = Choice_checker();
-
-			for (int i = 0; i < bsize; i++)
-			{
-				if (Books_info[i].ID_of_book == id)
-				{
+			for (int i = 0; i < bsize; i++) {
+				if (Books_info[i].ID_of_book == id) {
 					cout << "This ID already exists!";
 					ID_check = 1;
 					break;
 				}
-				else
-				{
+				else {
 					ID_check = 0;
 				}
 			}
-			if (ID_check == 0)
-			{
+			if (ID_check == 0) {
 				Books_info[bsize].ID_of_book = id;
 			}
 		} while (ID_check);
 	}
-	else if (editor_choise == 2)
-	{
+	else if (editor_choise == 2) {
 		cout << "\nEnter Name of book - "; 	cin.ignore(); cin.get(buff, 100);
 		delete Books_info[m].Name;
 		Books_info[m].Name = new char[strlen(buff) + 1];
 		strcpy(Books_info[m].Name, buff);
 	}
-	else if (editor_choise == 3)
-	{
+	else if (editor_choise == 3) {
 		cout << "\nEnter Author of book - "; cin.ignore(); cin.get(buff, 100);
 		delete Books_info[m].Author;
 		Books_info[m].Author = new char[strlen(buff) + 1];
 		strcpy(Books_info[m].Author, buff);
 	}
-	else if (editor_choise == 4)
-	{
+	else if (editor_choise == 4) {
 		cout << "\nEnter Genre of book - "; cin.ignore(); cin.get(buff, 100);
 		delete Books_info[m].Genre;
 		Books_info[m].Genre = new char[strlen(buff) + 1];
 		strcpy(Books_info[m].Genre, buff);
 	}
-	else if (editor_choise == 5)
-	{
+	else if (editor_choise == 5) {
 		cout << "\nEnter Price of book - "; cin >> Books_info[m].Price;
 	}
-	else if (editor_choise == 6)
-	{
+	else if (editor_choise == 6) {
 		cout << "\nEnter Rating of the book - "; cin >> Books_info[m].Rating;
 	}
-	else if (editor_choise == 7)
-	{
+	else if (editor_choise == 7) {
 		do
 		{
 			cout << "\nEnter ID of book(177524) - "; id = Choice_checker();
 
-			for (int i = 0; i < bsize; i++)
-			{
-				if (Books_info[i].ID_of_book == id)
-				{
+			for (int i = 0; i < bsize; i++) {
+				if (Books_info[i].ID_of_book == id) {
 					cout << "This ID already exists!";
 					ID_check = 1;
 					break;
 				}
-				else
-				{
+				else {
 					ID_check = 0;
 				}
 			}
-			if (ID_check == 0)
-			{
+			if (ID_check == 0) {
 				Books_info[bsize].ID_of_book = id;
 			}
 		} while (ID_check);
 	}
-	else if (editor_choise == 8)
-	{
+	else if (editor_choise == 8) {
 		cout << "\n Enter Edition of book(19**,20**) - "; cin >> Books_info[m].Edition;
 	}
 
@@ -511,24 +433,17 @@ void Book_editor_menu(Book_Data*& Books_info, long bsize)
 		Show_books(Books_info, bsize);
 
 		cout << "\nEnter ID of book - "; cin >> position_of_book;
-	
-		for (int i = 0; i < bsize; i++)
-		{
-			if (Books_info[i].ID_of_book == position_of_book)
-			{
+
+		for (int i = 0; i < bsize; i++) {
+			if (Books_info[i].ID_of_book == position_of_book) {
 				cout << "\n" << Books_info[i].Edition << "\t" << Books_info[i].Name << "\t" << Books_info[i].Author << "\t" << Books_info[i].Genre << "\t" << Books_info[i].Price;
 				cout << "\t" << Books_info[i].Rating << "\t" << Books_info[i].ID_of_book << "\t" << Books_info[i].Popularity << "\n";
 				m = i;
 				editor_check = 0;
 				break;
 			}
-			else
-			{
-				continue;
-			}
 		}
-		if (editor_check == 1)
-		{
+		if (editor_check == 1) {
 			cout << "Book not found\n";
 		}
 	} while (editor_check);
@@ -558,79 +473,44 @@ void Book_editor_menu(Book_Data*& Books_info, long bsize)
 
 void Sort_books(Book_Data* Books_info, long bsize, int book_sort_menu_choice)
 {
-	if (book_sort_menu_choice == 1)
-	{
-		for (int i = 0; i < bsize; i++)
-		{
-			for (int j = 0; j < bsize - 1; j++)
-			{
+	if (book_sort_menu_choice == 1) {
+		for (int i = 0; i < bsize; i++) {
+			for (int j = 0; j < bsize - 1; j++) {
 				int one = Books_info[j].Author[0];
 				int two = Books_info[j + 1].Author[0];
-
-				if (one > two)
-				{
+				if (one > two) {
 					swap(Books_info[j], Books_info[j + 1]);
-				}
-				else
-				{
-					continue;
 				}
 			}
 		}
 	}
-	else if (book_sort_menu_choice == 2)
-	{
-		for (int i = 0; i < bsize; i++)
-		{
-			for (int j = 0; j < bsize; j++)
-			{
+	else if (book_sort_menu_choice == 2) {
+		for (int i = 0; i < bsize; i++) {
+			for (int j = 0; j < bsize; j++) {
 				int one = Books_info[j].Name[0];
 				int two = Books_info[j + 1].Name[0];
-
-				if (one > two)
-				{
+				if (one > two) {
 					swap(Books_info[j], Books_info[j + 1]);
-				}
-				else
-				{
-					continue;
 				}
 			}
 		}
 	}
-	else if (book_sort_menu_choice == 3)
-	{
-		for (int i = 0; i < bsize; i++)
-		{
-			for (int j = 0; j < bsize; j++)
-			{
+	else if (book_sort_menu_choice == 3) {
+		for (int i = 0; i < bsize; i++) {
+			for (int j = 0; j < bsize; j++) {
 				int one = Books_info[j].Genre[0];
 				int two = Books_info[j + 1].Genre[0];
-
-				if (one > two)
-				{
+				if (one > two) {
 					swap(Books_info[j], Books_info[j + 1]);
-				}
-				else
-				{
-					continue;
 				}
 			}
 		}
 	}
-	else if (book_sort_menu_choice == 4)
-	{
-		for (int i = 0; i < bsize; i++)
-		{
-			for (int j = 0; j < bsize; j++)
-			{
-				if (Books_info[j].Popularity > Books_info[j].Popularity)
-				{
+	else if (book_sort_menu_choice == 4) {
+		for (int i = 0; i < bsize; i++) {
+			for (int j = 0; j < bsize; j++) {
+				if (Books_info[j].Popularity > Books_info[j].Popularity) {
 					swap(Books_info[j], Books_info[j + 1]);
-				}
-				else
-				{
-					continue;
 				}
 			}
 		}
@@ -659,37 +539,23 @@ void Sort_books_menu(Book_Data* Books_info, long bsize)
 		default: cout << "Wrong choice!"; break;
 		}
 	} while (book_sort_menu_exit);
-	
+
 }
 
-void Show_borrowed_books(Book_Data* Books_info,long bsize,Reader_Data* Readers_info,long rsize)
+void Show_borrowed_books(Book_Data* Books_info, long bsize, Reader_Data* Readers_info, long rsize)
 {
-	for (int i = 0; i < bsize; i++)
-	{
-		if (Books_info[i].ID_reader_who_took_the_book > 0)
-		{
-			cout << "\nDate of issue - "<<Books_info[i].Issuing_time<<"\n";
+	for (int i = 0; i < bsize; i++) {
+		if (Books_info[i].ID_reader_who_took_the_book > 0) {
+			cout << "\nDate of issue - " << Books_info[i].Issuing_time << "\n";
 			cout << "\n" << Books_info[i].Name << "\t" << Books_info[i].Author << "\t" << Books_info[i].Genre << "\t";
-			cout << Books_info[i].ID_of_book <<"\t-->\t";
-
-			for (int j = 0; j < rsize; j++)
-			{
-				if (Readers_info[j].ID_of_user == Books_info[i].ID_reader_who_took_the_book)
-				{
-					cout << Readers_info[j].Full_name << "\t" << Readers_info[j].ID_of_user<<"\n";
-				}
-				else
-				{
-					continue;
+			cout << Books_info[i].ID_of_book << "\t-->\t";
+			for (int j = 0; j < rsize; j++) {
+				if (Readers_info[j].ID_of_user == Books_info[i].ID_reader_who_took_the_book) {
+					cout << Readers_info[j].Full_name << "\t" << Readers_info[j].ID_of_user << "\n";
 				}
 			}
 		}
-		else
-		{
-			continue;
-		}
 	}
-
 	cin.ignore(); cin.get();
 }
 
@@ -705,39 +571,24 @@ void Issuing_book(Book_Data*& Books_info, long bsize, Reader_Data*& Readers_info
 	{
 		cout << "\nEnter ID of book for issuing - "; cin >> ID_of_book;
 
-		for (int i = 0; i < bsize; i++)
-		{
-			if (Books_info[i].ID_of_book == ID_of_book)
-			{
-				if (Books_info[i].ID_reader_who_took_the_book > 0)
-				{
+		for (int i = 0; i < bsize; i++) {
+			if (Books_info[i].ID_of_book == ID_of_book) {
+				if (Books_info[i].ID_reader_who_took_the_book > 0) {
 					search_check = 0;
 				}
-				else
-				{
+				else {
 					issung_check = 0;
 					ID_of_book = i;
 					break;
 				}
 			}
-			else
-			{
-				continue;
-			}
 		}
-		if (search_check == 0)
-		{
+		if (search_check == 0) {
 			cout << "The book is already with the reader!";
 		}
-		else if (issung_check == 1)
-		{
+		else if (issung_check == 1) {
 			cout << "The book could not be found. Please enter a valid ID";
 		}
-		else
-		{
-			continue;
-		}
-
 	} while (issung_check);
 
 	issung_check = 1;
@@ -747,26 +598,17 @@ void Issuing_book(Book_Data*& Books_info, long bsize, Reader_Data*& Readers_info
 	do
 	{
 		cout << "\nEnter ID of reader - "; ID_of_reader = Choice_checker();
-		
-		for (int i = 0; i < rsize; i++)
-		{
-			if (Readers_info[i].ID_of_user == ID_of_reader)
-			{
+
+		for (int i = 0; i < rsize; i++) {
+			if (Readers_info[i].ID_of_user == ID_of_reader) {
 				ID_of_reader = i;
 				issung_check = 0;
 				break;
 			}
-			else
-			{
-				continue;
-			}
 		}
-
-		if (issung_check == 1)
-		{
+		if (issung_check == 1) {
 			cout << "Failed to find reader, please enter valid ID";
 		}
-
 	} while (issung_check);
 
 	time_t now = time(0);
@@ -788,34 +630,25 @@ void Book_return(Book_Data*& Books_info, long bsize, Reader_Data*& Readers_info,
 
 	cout << "\nEnter ID of book to return - "; ID_of_book = Choice_checker();
 
-	for (int i = 0; i < bsize; i++)
-	{
-		if (Books_info[i].ID_of_book == ID_of_book)
-		{
-			if (Books_info[i].ID_reader_who_took_the_book > 0)
-			{
+	for (int i = 0; i < bsize; i++) {
+		if (Books_info[i].ID_of_book == ID_of_book) {
+			if (Books_info[i].ID_reader_who_took_the_book > 0) {
 				Books_info[i].ID_reader_who_took_the_book = 0;
 				book_return_check = 0;
 			}
-			else
-			{
-				continue;
-			}
 		}
 	}
-	if (book_return_check == 1)
-	{
+	if (book_return_check == 1) {
 		cout << "Book not found or book not taken";
 	}
-	else
-	{
-		cout<< "Book successfully returned";
+	else {
+		cout << "Book successfully returned";
 	}
 
 	cin.ignore(); cin.get();
 }
 
-void Book_menegment_menu(Book_Data*& Books_info,long bsize,Reader_Data*& Readers_info,long rsize)
+void Book_menegment_menu(Book_Data*& Books_info, long bsize, Reader_Data*& Readers_info, long rsize)
 {
 	bool book_menegment_menu_exit = 1;
 
@@ -864,26 +697,21 @@ void Only_popylar_readers(Reader_Data* Readers_info, long rsize)
 {
 	Reader_Data* temp = new Reader_Data[rsize];
 
-	for (int i = 0; i < rsize; i++)
-	{
+	for (int i = 0; i < rsize; i++) {
 
 		temp[i] = Readers_info[i];
 	}
 
-	for (int i = 0; i < rsize; i++)
-	{
-		for (int j = 0; j < rsize-1; j++)
-		{
-			if (temp[j].Books_read > temp[j + 1].Books_read)
-			{
+	for (int i = 0; i < rsize; i++) {
+		for (int j = 0; j < rsize - 1; j++) {
+			if (temp[j].Books_read > temp[j + 1].Books_read) {
 				swap(temp[j], temp[j + 1]);
 			}
 		}
 	}
 
-	for (int i = 0; i < rsize/2; i++)
-	{
-		cout << "\n" << temp[i].Full_name << "\t" << temp[i].Date_of_birth << "\t" << temp[i].Passport_ID << "\t" << temp[i].ID_of_user << "\t" << temp[i].Books_read<<"\n";
+	for (int i = 0; i < rsize / 2; i++) {
+		cout << "\n" << temp[i].Full_name << "\t" << temp[i].Date_of_birth << "\t" << temp[i].Passport_ID << "\t" << temp[i].ID_of_user << "\t" << temp[i].Books_read << "\n";
 	}
 
 	cin.ignore(); cin.get();
@@ -908,8 +736,7 @@ void Add_reader(Reader_Data*& Readers_info, long& rsize)
 
 	Reader_Data* temp = new Reader_Data[rsize + 1];
 
-	for (int i = 0; i < rsize; i++)
-	{
+	for (int i = 0; i < rsize; i++) {
 		temp[i] = Readers_info[i];
 	}
 
@@ -922,53 +749,43 @@ void Add_reader(Reader_Data*& Readers_info, long& rsize)
 	cout << "\nEnter Full name of reader - "; cin.ignore(); cin.get(buff, 100);
 	Readers_info[rsize].Full_name = new char[strlen(buff) + 1];
 
-	for (int i = 0; i < strlen(buff); i++)
-	{
-		if (i > 0 && isupper(buff[i]))
-		{
+	for (int i = 0; i < strlen(buff); i++) {
+		if (i > 0 && isupper(buff[i])) {
 			break;
 		}
 		Readers_info[rsize].Full_name[m] = buff[i];
 		m++;
 	}
-
-	for (int i = 1; i < strlen(buff); i++)
-	{
-		if (isupper(buff[i]))
-		{
+	for (int i = 1; i < strlen(buff); i++) {
+		if (isupper(buff[i])) {
 			Readers_info[rsize].Full_name[m] = buff[i];
 			m++;
 			Readers_info[rsize].Full_name[m] = '.';
 			m++;
 		}
 	}
-
 	Readers_info[rsize].Full_name[m] = '\0';
 
 	cout << "\nEnter date of birth(22.04.2000) - "; cin.ignore(); cin.get(buff, 100);
 	Readers_info[rsize].Date_of_birth = new char[strlen(buff) + 1];
 	strcpy(Readers_info[rsize].Date_of_birth, buff);
+
 	cout << "\nEnter ID of passport - "; Readers_info[rsize].Passport_ID = Choice_checker();
-	
 	do
 	{
 		cout << "\nEnter ID of reader - "; id = Choice_checker();
 
-		for (int i = 0; i <= rsize; i++)
-		{
-			if (Readers_info[i].ID_of_user == id)
-			{
+		for (int i = 0; i <= rsize; i++) {
+			if (Readers_info[i].ID_of_user == id) {
 				cout << "This ID already exists!";
 				ID_checker = 1;
 				break;
 			}
-			else
-			{
+			else {
 				ID_checker = 0;
 			}
 		}
-		if (ID_checker == 0)
-		{
+		if (ID_checker == 0) {
 			Readers_info[rsize].ID_of_user = id;
 		}
 	} while (ID_checker);
@@ -978,30 +795,25 @@ void Add_reader(Reader_Data*& Readers_info, long& rsize)
 	rsize++;
 }
 
-void Delete_reader(Reader_Data*& Readers_info, long& rsize,Book_Data* Books_info,long bsize)
+void Delete_reader(Reader_Data*& Readers_info, long& rsize, Book_Data* Books_info, long bsize)
 {
 	Show_readers(Readers_info, rsize);
-	
-	int delete_id,positiion_of_delete;
+
+	int delete_id, positiion_of_delete;
 	bool delete_check = 1;
 
 	cout << "\nEnter ID of reader - "; cin >> delete_id;
 
-	for (int i = 0; i < rsize; i++)
-	{
-		if (Readers_info[i].ID_of_user == delete_id)
-		{
-			for (int j = 0; j <= bsize; j++)
-			{
-				if (Books_info[j].ID_reader_who_took_the_book==delete_id)
-				{
+	for (int i = 0; i < rsize; i++) {
+		if (Readers_info[i].ID_of_user == delete_id) {
+			for (int j = 0; j <= bsize; j++) {
+				if (Books_info[j].ID_reader_who_took_the_book == delete_id) {
 					cout << "Before deleting a reader, you must return the book!\a";
 					cin.ignore(); cin.get();
 					delete_check = 1;
 					break;
 				}
-				else
-				{
+				else {
 					positiion_of_delete = i;
 					delete_check = 0;
 				}
@@ -1009,22 +821,17 @@ void Delete_reader(Reader_Data*& Readers_info, long& rsize,Book_Data* Books_info
 		}
 	}
 
-	if (delete_check == 0)
-	{
+	if (delete_check == 0) {
 		Reader_Data* temp = new Reader_Data[rsize - 1];
 
-		for (int i = 0; i < rsize; i++)
-		{
-			if (i < positiion_of_delete)
-			{
+		for (int i = 0; i < rsize; i++) {
+			if (i < positiion_of_delete) {
 				temp[i] = Readers_info[i];
 			}
-			else if (i == positiion_of_delete)
-			{
+			else if (i == positiion_of_delete) {
 				continue;
 			}
-			else
-			{
+			else {
 				temp[i - 1] = Readers_info[i];
 			}
 		}
@@ -1032,8 +839,7 @@ void Delete_reader(Reader_Data*& Readers_info, long& rsize,Book_Data* Books_info
 		Readers_info = temp;
 		rsize--;
 	}
-	else
-	{
+	else {
 		cout << "\nUser is not found";
 	}
 }
@@ -1046,85 +852,56 @@ void Reader_Serch(Reader_Data* Readers_info, long rsize, int reader_serch_choise
 	char buff[100];
 	bool serch_check = 1;
 
-	if (reader_serch_choise == 1)
-	{
+	if (reader_serch_choise == 1) {
 		cout << "\nEnter full name - "; cin.ignore(); cin.get(buff, 100);
 
-		for (int i = 0; i < rsize; i++)
-		{
-			if (strcmp(strtok(Readers_info[i].Full_name, " "), strtok(buff, " ")) == 0)
-			{
+		for (int i = 0; i < rsize; i++) {
+			if (strcmp(strtok(Readers_info[i].Full_name, " "), strtok(buff, " ")) == 0) {
 				cout << "\n" << Readers_info[i].Full_name << "\t" << Readers_info[i].Date_of_birth << "\t" << Readers_info[i].Passport_ID;
 				cout << "\t" << Readers_info[i].ID_of_user << "\t" << Readers_info[i].Books_read << "\n";
 				serch_check = 0;
 				break;
 			}
-			else
-			{
-				continue;
-			}
 		}
 	}
-	else if (reader_serch_choise == 2)
-	{
+	else if (reader_serch_choise == 2) {
 		cout << "\nEnter number of readed books - "; cin >> intbuff;
 
-		for (int i = 0; i < rsize; i++)
-		{
-			if (Readers_info[i].Books_read == intbuff)
-			{
+		for (int i = 0; i < rsize; i++) {
+			if (Readers_info[i].Books_read == intbuff) {
 				cout << "\n" << Readers_info[i].Full_name << "\t" << Readers_info[i].Date_of_birth << "\t" << Readers_info[i].Passport_ID;
 				cout << "\t" << Readers_info[i].ID_of_user << "\t" << Readers_info[i].Books_read << "\n";
 				serch_check = 0;
 			}
-			else
-			{
-				continue;
-			}
 		}
 
 	}
-	else if (reader_serch_choise == 3)
-	{
+	else if (reader_serch_choise == 3) {
 		cout << "\nEnter ID of reader - "; intbuff = Choice_checker();
 
-		for (int i = 0; i < rsize; i++)
-		{
-			if (Readers_info[i].ID_of_user == intbuff)
-			{
+		for (int i = 0; i < rsize; i++) {
+			if (Readers_info[i].ID_of_user == intbuff) {
 				cout << "\n" << Readers_info[i].Full_name << "\t" << Readers_info[i].Date_of_birth << "\t" << Readers_info[i].Passport_ID;
 				cout << "\t" << Readers_info[i].ID_of_user << "\t" << Readers_info[i].Books_read << "\n";
 				serch_check = 0;
 				break;
 			}
-			else
-			{
-				continue;
-			}
 		}
 	}
-	else if (reader_serch_choise == 4)
-	{
+	else if (reader_serch_choise == 4) {
 		cout << "\nEnter passport ID of reader - "; intbuff = Choice_checker();
 
-		for (int i = 0; i < rsize; i++)
-		{
-			if (Readers_info[i].Passport_ID == intbuff)
-			{
+		for (int i = 0; i < rsize; i++) {
+			if (Readers_info[i].Passport_ID == intbuff) {
 				cout << "\n" << Readers_info[i].Full_name << "\t" << Readers_info[i].Date_of_birth << "\t" << Readers_info[i].Passport_ID;
 				cout << "\t" << Readers_info[i].ID_of_user << "\t" << Readers_info[i].Books_read << "\n";
 				serch_check = 0;
 				break;
 			}
-			else
-			{
-				continue;
-			}
 		}
 	}
 
-	if (serch_check == 1)
-	{
+	if (serch_check == 1) {
 		cout << "\nReader not found";
 	}
 
@@ -1153,75 +930,43 @@ void Reader_Search_menu(Reader_Data* Readers_info, long rsize)
 	} while (reader_serch_menu_exit);
 }
 
-void Reader_Sort(Reader_Data*& Readers_info, long& rsize,int reader_sort_choise)
+void Reader_Sort(Reader_Data*& Readers_info, long& rsize, int reader_sort_choise)
 {
-	if (reader_sort_choise == 1)
-	{
-		for (int i = 0; i < rsize; i++)
-		{
-			for (int j = 0; j < rsize - 1; j++)
-			{
+	if (reader_sort_choise == 1) {
+		for (int i = 0; i < rsize; i++) {
+			for (int j = 0; j < rsize - 1; j++) {
 				int one = Readers_info[j].Full_name[0];
 				int two = Readers_info[j + 1].Full_name[0];
 
-				if (one > two)
-				{
+				if (one > two) {
 					swap(Readers_info[j], Readers_info[j + 1]);
-				}
-				else
-				{
-					continue;
 				}
 			}
 		}
 	}
-	else if (reader_sort_choise == 2)
-	{
-		for (int i = 0; i < rsize; i++)
-		{
-			for (int j = 0; j < rsize - 1; j++)
-			{
-				if (Readers_info[j].Books_read < Readers_info[j + 1].Books_read)
-				{
+	else if (reader_sort_choise == 2) {
+		for (int i = 0; i < rsize; i++) {
+			for (int j = 0; j < rsize - 1; j++) {
+				if (Readers_info[j].Books_read < Readers_info[j + 1].Books_read) {
 					swap(Readers_info[j], Readers_info[j + 1]);
-				}
-				else
-				{
-					continue;
 				}
 			}
 		}
 	}
-	else if (reader_sort_choise == 3)
-	{
-		for (int i = 0; i < rsize; i++)
-		{
-			for (int j = 0; j < rsize - 1; j++)
-			{
-				if (Readers_info[j].ID_of_user < Readers_info[j + 1].ID_of_user)
-				{
+	else if (reader_sort_choise == 3) {
+		for (int i = 0; i < rsize; i++) {
+			for (int j = 0; j < rsize - 1; j++) {
+				if (Readers_info[j].ID_of_user < Readers_info[j + 1].ID_of_user) {
 					swap(Readers_info[j], Readers_info[j + 1]);
-				}
-				else
-				{
-					continue;
 				}
 			}
 		}
 	}
-	else if (reader_sort_choise == 4)
-	{
-		for (int i = 0; i < rsize; i++)
-		{
-			for (int j = 0; j < rsize - 1; j++)
-			{
-				if (Readers_info[j].Passport_ID < Readers_info[j + 1].Passport_ID)
-				{
+	else if (reader_sort_choise == 4) {
+		for (int i = 0; i < rsize; i++) {
+			for (int j = 0; j < rsize - 1; j++) {
+				if (Readers_info[j].Passport_ID < Readers_info[j + 1].Passport_ID) {
 					swap(Readers_info[j], Readers_info[j + 1]);
-				}
-				else
-				{
-					continue;
 				}
 			}
 		}
@@ -1231,7 +976,7 @@ void Reader_Sort(Reader_Data*& Readers_info, long& rsize,int reader_sort_choise)
 	cin.ignore(); cin.get();
 }
 
-void Reader_Sort_menu(Reader_Data* Readers_info,long rsize)
+void Reader_Sort_menu(Reader_Data* Readers_info, long rsize)
 {
 	bool reader_sort_menu_exit = 1;
 	int reader_sort_menu_choise;
@@ -1254,33 +999,27 @@ void Reader_Sort_menu(Reader_Data* Readers_info,long rsize)
 	} while (reader_sort_menu_exit);
 }
 
-void Reader_edit(Reader_Data*& Readers_info, long rsize,Book_Data* Books_info, long bsize, int reader_edit_choice, int ID_of_reader)
+void Reader_edit(Reader_Data*& Readers_info, long rsize, Book_Data* Books_info, long bsize, int reader_edit_choice, int ID_of_reader)
 {
 	char buff[100];
 	bool ID_checker = 1;
 	int id;
 
-	if (reader_edit_choice == 1)
-	{
+	if (reader_edit_choice == 1) {
 		int m = 0;
 
 		cout << "\nEnter Full name of reader - "; cin.ignore(); cin.get(buff, 100);
 		Readers_info[ID_of_reader].Full_name = new char[strlen(buff) + 1];
 
-		for (int i = 0; i < strlen(buff); i++)
-		{
-			if (i > 0 && isupper(buff[i]))
-			{
+		for (int i = 0; i < strlen(buff); i++) {
+			if (i > 0 && isupper(buff[i])) {
 				break;
 			}
 			Readers_info[ID_of_reader].Full_name[m] = buff[i];
 			m++;
 		}
-
-		for (int i = 1; i < strlen(buff); i++)
-		{
-			if (isupper(buff[i]))
-			{
+		for (int i = 1; i < strlen(buff); i++) {
+			if (isupper(buff[i])) {
 				Readers_info[ID_of_reader].Full_name[m] = buff[i];
 				m++;
 				Readers_info[ID_of_reader].Full_name[m] = '.';
@@ -1293,32 +1032,25 @@ void Reader_edit(Reader_Data*& Readers_info, long rsize,Book_Data* Books_info, l
 		cout << "\nEnter date of birth(22.04.2000) - "; cin.ignore(); cin.get(buff, 100);
 		Readers_info[ID_of_reader].Date_of_birth = new char[strlen(buff) + 1];
 		strcpy(Readers_info[ID_of_reader].Date_of_birth, buff);
+
 		cout << "\nEnter ID of passport - "; Readers_info[ID_of_reader].Passport_ID = Choice_checker();
-		
 		do
 		{
 			cout << "\nEnter ID of reader - "; id = Choice_checker();
 
-			for (int i = 0; i <= rsize; i++)
-			{
-				if (Readers_info[i].ID_of_user == id)
-				{
+			for (int i = 0; i <= rsize; i++) {
+				if (Readers_info[i].ID_of_user == id) {
 					cout << "This ID already exists!";
 					ID_checker = 1;
 					break;
 				}
-				else
-				{
+				else {
 					ID_checker = 0;
 				}
 			}
-
-			if (ID_checker == 0)
-			{
-				for (int i = 0; i <= bsize; i++)
-				{
-					if (Books_info[i].ID_reader_who_took_the_book == Readers_info[ID_of_reader].ID_of_user)
-					{
+			if (ID_checker == 0) {
+				for (int i = 0; i <= bsize; i++) {
+					if (Books_info[i].ID_reader_who_took_the_book == Readers_info[ID_of_reader].ID_of_user) {
 						Books_info[i].ID_reader_who_took_the_book = id;
 						Readers_info[ID_of_reader].ID_of_user = id;
 					}
@@ -1326,46 +1058,35 @@ void Reader_edit(Reader_Data*& Readers_info, long rsize,Book_Data* Books_info, l
 			}
 		} while (ID_checker);
 	}
-	else if (reader_edit_choice == 2)
-	{
+	else if (reader_edit_choice == 2) {
 		cout << "\nEnter full name - "; cin.ignore(); cin.get(buff, 100);
 		strcpy(Readers_info[ID_of_reader].Full_name, buff);
 	}
-	else if (reader_edit_choice == 3)
-	{
+	else if (reader_edit_choice == 3) {
 		cout << "\nEnter date of birth(22.04.2000) - "; cin.ignore(); cin.get(buff, 100);
 		strcpy(Readers_info[ID_of_reader].Date_of_birth, buff);
 	}
-	else if (reader_edit_choice == 4)
-	{
+	else if (reader_edit_choice == 4) {
 		cout << "\nEnter passport ID - "; Readers_info[ID_of_reader].Passport_ID = Choice_checker();
 	}
-	else if (reader_edit_choice == 5)
-	{
+	else if (reader_edit_choice == 5) {
 		do
 		{
 			cout << "\nEnter ID of reader - "; id = Choice_checker();
 
-			for (int i = 0; i <= rsize; i++)
-			{
-				if (Readers_info[i].ID_of_user == id)
-				{
+			for (int i = 0; i <= rsize; i++) {
+				if (Readers_info[i].ID_of_user == id) {
 					cout << "This ID already exists!";
 					ID_checker = 1;
 					break;
 				}
-				else
-				{
+				else {
 					ID_checker = 0;
 				}
 			}
-			
-			if (ID_checker == 0)
-			{
-				for (int i = 0; i <= bsize; i++)
-				{
-					if (Books_info[i].ID_reader_who_took_the_book == Readers_info[ID_of_reader].ID_of_user)
-					{
+			if (ID_checker == 0) {
+				for (int i = 0; i <= bsize; i++) {
+					if (Books_info[i].ID_reader_who_took_the_book == Readers_info[ID_of_reader].ID_of_user) {
 						Books_info[i].ID_reader_who_took_the_book = id;
 						Readers_info[ID_of_reader].ID_of_user = id;
 					}
@@ -1387,10 +1108,8 @@ void Reader_edit_menu(Reader_Data*& Readers_info, long rsize, Book_Data* Books_i
 	{
 		cout << "\nEnter ID of reader - "; ID_of_reader = Choice_checker();
 
-		for (int i = 0; i < rsize; i++)
-		{
-			if (Readers_info[i].ID_of_user == ID_of_reader)
-			{
+		for (int i = 0; i < rsize; i++) {
+			if (Readers_info[i].ID_of_user == ID_of_reader) {
 				cout << "\n" << Readers_info[i].Full_name << "\t" << Readers_info[i].Date_of_birth << "\t" << Readers_info[i].Passport_ID;
 				cout << "\t" << Readers_info[i].ID_of_user << "\t" << Readers_info[i].Books_read << "\n";
 				ID_of_reader = i;
@@ -1398,8 +1117,7 @@ void Reader_edit_menu(Reader_Data*& Readers_info, long rsize, Book_Data* Books_i
 				break;
 			}
 		}
-		if (reader_edit_exit == 1)
-		{
+		if (reader_edit_exit == 1) {
 			cout << "Reader not found";
 		}
 	} while (reader_edit_exit);
@@ -1440,8 +1158,8 @@ void Reader_menu(Reader_Data*& Readers_info, long& rsize, Book_Data*& Books_info
 		case 2: Reader_Search_menu(Readers_info, rsize); break;
 		case 3: Reader_Sort_menu(Readers_info, rsize); break;
 		case 4: Add_reader(Readers_info, rsize); break;
-		case 5: Reader_edit_menu(Readers_info, rsize,Books_info,bsize); break;
-		case 6: Delete_reader(Readers_info, rsize,Books_info,bsize); break;
+		case 5: Reader_edit_menu(Readers_info, rsize, Books_info, bsize); break;
+		case 6: Delete_reader(Readers_info, rsize, Books_info, bsize); break;
 		case 0: reader_menu_exit = 0; break;
 		default: cout << "\nWrong choise!"; break;
 		}
@@ -1453,16 +1171,13 @@ void Import_readers_base(Reader_Data*& Readers_info, long& rsize)
 	char buff[300];
 	char* temp;
 
-	ifstream impreader("C:/CPP/Digital Library/Base/Reader_list.txt");
-	if (!impreader)
-	{
+	ifstream impreader("Reader_list.txt");
+	if (!impreader) {
 		cout << "Saved readers base not found. Loading a clean library...";
 		cin.get();
 	}
-	else
-	{
-		while (impreader)
-		{
+	else {
+		while (impreader) {
 			impreader.getline(buff, 300);
 			rsize++;
 		}
@@ -1470,17 +1185,19 @@ void Import_readers_base(Reader_Data*& Readers_info, long& rsize)
 
 		impreader.close();
 		Readers_info = new Reader_Data[rsize];
-		impreader.open("C:/CPP/Digital Library/Base/Reader_list.txt");
+		impreader.open("Reader_list.txt");
 
-		for (int i = 0; i < rsize; i++)
-		{
+		for (int i = 0; i < rsize; i++) {
 			impreader.getline(buff, 300);
+
 			temp = strtok(buff, "#");
 			Readers_info[i].Full_name = new char[strlen(temp) + 1];
 			strcpy(Readers_info[i].Full_name, temp);
+
 			temp = strtok(NULL, "#");
 			Readers_info[i].Date_of_birth = new char[strlen(temp) + 1];
 			strcpy(Readers_info[i].Date_of_birth, temp);
+
 			Readers_info[i].Passport_ID = atoi(strtok(NULL, "#"));
 			Readers_info[i].ID_of_user = atoi(strtok(NULL, "#"));
 			Readers_info[i].Books_read = atoi(strtok(NULL, "\n"));
@@ -1495,16 +1212,13 @@ void Import_book_base(Book_Data*& Books_info, long& bsize)
 	char buff[300];
 	char* temp;
 
-	ifstream impbook("C:/CPP/Digital Library/Base/Book_list.txt");
-	if (!impbook)
-	{
+	ifstream impbook("Book_list.txt");
+	if (!impbook) {
 		cout << "\nSaved book base not found. Loading a clean library...";
 		cin.get();
 	}
-	else
-	{
-		while (impbook)
-		{
+	else {
+		while (impbook) {
 			impbook.getline(buff, 300);
 			bsize++;
 		}
@@ -1512,28 +1226,33 @@ void Import_book_base(Book_Data*& Books_info, long& bsize)
 
 		impbook.close();
 		Books_info = new Book_Data[bsize];
-		impbook.open("C:/CPP/Digital Library/Base/Book_list.txt");
+		impbook.open("Book_list.txt");
 
-		for (int i = 0; i < bsize; i++)
-		{
+		for (int i = 0; i < bsize; i++) {
 			impbook.getline(buff, 300);
+
 			Books_info[i].Edition = atoi(strtok(buff, "#"));
+
 			temp = strtok(NULL, "#");
 			Books_info[i].Name = new char[strlen(temp) + 1];
 			strcpy(Books_info[i].Name, temp);
+
 			temp = strtok(NULL, "#");
 			Books_info[i].Author = new char[strlen(temp) + 1];
 			strcpy(Books_info[i].Author, temp);
+
 			temp = strtok(NULL, "#");
 			Books_info[i].Genre = new char[strlen(temp) + 1];
 			strcpy(Books_info[i].Genre, temp);
+
 			Books_info[i].Price = atoi(strtok(NULL, "#"));
 			Books_info[i].Rating = atoi(strtok(NULL, "#"));
 			Books_info[i].ID_of_book = atoi(strtok(NULL, "#"));
 			Books_info[i].Popularity = atoi(strtok(NULL, "#"));
 			Books_info[i].ID_reader_who_took_the_book = atoi(strtok(NULL, "#"));
+
 			temp = strtok(NULL, "\n");
-			Books_info[i].Issuing_time = new char[strlen(temp)+1];
+			Books_info[i].Issuing_time = new char[strlen(temp) + 1];
 			strcpy(Books_info[i].Issuing_time, temp);
 		}
 		impbook.close();
@@ -1543,11 +1262,10 @@ void Import_book_base(Book_Data*& Books_info, long& bsize)
 
 void Export_book_base(Book_Data* Books_info, long bsize)
 {
-	ofstream exbook("C:/CPP/Digital Library/Base/Book_list.txt");
+	ofstream exbook("Book_list.txt");
 
-	for (int i = 0; i < bsize; i++)
-	{
-		exbook <<Books_info[i].Edition<<"#"<< Books_info[i].Name << "#" << Books_info[i].Author << "#" << Books_info[i].Genre << "#" << Books_info[i].Price << "#" << Books_info[i].Rating << "#";
+	for (int i = 0; i < bsize; i++) {
+		exbook << Books_info[i].Edition << "#" << Books_info[i].Name << "#" << Books_info[i].Author << "#" << Books_info[i].Genre << "#" << Books_info[i].Price << "#" << Books_info[i].Rating << "#";
 		exbook << Books_info[i].ID_of_book << "#" << Books_info[i].Popularity << "#" << Books_info[i].ID_reader_who_took_the_book << "#" << Books_info[i].Issuing_time;
 	}
 	exbook.close();
@@ -1555,12 +1273,11 @@ void Export_book_base(Book_Data* Books_info, long bsize)
 
 void Export_readers_base(Reader_Data* Readers_info, long rsize)
 {
-	ofstream exreader("C:/CPP/Digital Library/Base/Reader_list.txt");
+	ofstream exreader("Reader_list.txt");
 
-	for (int i = 0; i < rsize; i++)
-	{
-		exreader << Readers_info[i].Full_name << "#" << Readers_info[i].Date_of_birth << "#" << Readers_info[i].Passport_ID << "#"; 
-		exreader << Readers_info[i].ID_of_user << "#" << Readers_info[i].Books_read<<"\n";
+	for (int i = 0; i < rsize; i++) {
+		exreader << Readers_info[i].Full_name << "#" << Readers_info[i].Date_of_birth << "#" << Readers_info[i].Passport_ID << "#";
+		exreader << Readers_info[i].ID_of_user << "#" << Readers_info[i].Books_read << "\n";
 	}
 	exreader.close();
 }
@@ -1571,7 +1288,7 @@ int main()
 	bool check = 1;
 	Book_Data* Books_info = nullptr;
 	Reader_Data* Readers_info = nullptr;
-	
+
 	Import_readers_base(Readers_info, rsize);
 	Import_book_base(Books_info, bsize);
 
@@ -1581,6 +1298,7 @@ int main()
 		cout << "\n\t\t\t\t\t\t\t\t\t\t\t\t\t@Made by Kvas\n\n\n\n\n\n\n\n\n\n";
 		cout << "\t\t\t\t\t\tDIGITAL LIBRARY\n\n";
 		cout << "\nEnter choice\n1# Working with books\n2# Working with readers\n0# Exit\n";
+
 		switch (Choice_checker())
 		{
 		case 1: Book_menu(Books_info, bsize, Readers_info, rsize); break;
@@ -1588,7 +1306,6 @@ int main()
 		case 0: Exit_menu(check); break;
 		default:cout << "Wrong choise!\a"; cin.ignore(); cin.get(); break;
 		}
-
 	} while (check);
 
 	Export_book_base(Books_info, bsize);
